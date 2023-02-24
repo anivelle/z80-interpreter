@@ -3,6 +3,8 @@
 #include <unistd.h>
 
 // Main file for reading a hex dump of (hopefully) Z80 Assembly code: https://www.grimware.org/doku.php/documentations/devices/z80
+// Other info: http://www.z80.info/
+
 int main(int argc, char *argv[]) {
     FILE *file;
     int fd;
@@ -18,7 +20,11 @@ int main(int argc, char *argv[]) {
             switch (opcode)
             {
                 case 0:
-                    printf("NOP");
+                    printf("NOP\r\n");
+                    break;
+                default:
+                    printf("%2X\r\n", opcode);
+
             }
         }
         fclose(file);
